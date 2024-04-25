@@ -81,7 +81,9 @@ async def on_error(e, *arg, **kwarg):
 @bot.tree.command(name = "markdown", description = "顯示一些 markdown 介紹")
 async def markdown_guide(interaction: discord.Interaction):
     msg = """### 格式化你的程式碼：
-在你的程式碼前後各放三個 "backtick" (\\`)
+請在你的程式碼前後各放三個 ["backtick" (\\`)](<https://en.wikipedia.org/wiki/Backtick>)
+註：它在你的數字鍵 1 的左邊。
+
 例：
 ```
 `​`​`python
