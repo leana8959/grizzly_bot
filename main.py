@@ -76,6 +76,29 @@ async def on_error(e, *arg, **kwarg):
     traceback_ = traceback.format_exc()
     print(traceback_)
 
+# TODO: add "trusted" user field in the settings
+# TODO: Only allow "trusted" user to use some commands
+@bot.tree.command(name = "markdown", description = "顯示一些 markdown 介紹")
+async def markdown_guide(interaction: discord.Interaction):
+    msg = """### 格式化你的程式碼：
+在你的程式碼前後各放三個 "backtick" (\\`)
+例：
+```
+`​`​`python
+print("Hello world")
+`​`​`
+```
+會顯示：
+```python
+print("Hello world")
+```
+這裡的範例用了 python ，你也可以用其他程式語言或它們的副檔名
+例： rust 或 rs
+
+PS:直接複製上面的範例會產生錯誤的格式，你得自己寫一次 :p
+"""
+    await interaction.response.send_message(msg)
+
 # /我想刷題
 @bot.tree.command(name = "我想刷題", description = "想練題嗎？這裡提供一些歷屆APCS試題來讓你練練手感")
 async def zj_apcs(interaction: discord.Interaction):
